@@ -14,7 +14,7 @@ s_a_LS <- c(0.0004740048, 0.0002890753, 0.0002707528, 0.0004135886, 0.0003707150
 B_LS = abs(F*a_LS/(2*Si))
 s_B_LS = (s_a_LS/a_LS)*B_LS
 R <- c(51.47, 100.8, 300.8, 510.6, 1000)
-plot(R, B_LS, pch=4, ylim = c(0, 14*10^-10))
+plot(R, B_LS, pch=4, ylim = c(0, 14*10^-10), xlab="R/Ohm", ylab = "B_LS/T")
 plotCI (R, B_LS, uiw=s_B_LS , err="y" , pch=4, cex=0.6 ,add=TRUE)
 
 #Dipol
@@ -61,7 +61,7 @@ s_B_KK = (s_a_KK/a_KK)*B_KK
 x <- c(33.5, 34.5, 35.0, 35.5, 36.0, 36.5)
 s_x <- c(0.2, 0.2, 0.2, 0.2, 0.2, 0.2)
 
-plot(x, B_KK, pch=4)
+plot(x, B_KK, pch=4, xlab="x/cm", ylab="B_KK/T")
 plotCI (x, B_KK, uiw=s_B_KK , err="y" , pch=4, cex=0.6 ,add=TRUE)
 plotCI (x, B_KK, uiw=s_x , err="x" , pch=4, cex=0.6 ,add=TRUE)
 
