@@ -1,7 +1,7 @@
 #setwd("C:/Users/Saskia/Documents/Physik/FP/fp1-squid/Auswertung")
 
 source("Sinusfit.R")
-data = read.csv("KK_36.0_HM1508-2.csv")
+data = read.csv("Ohr_HM1508-2.csv")
 x <- data [[1]]
 y <- data[[2]]
 xmin = min(x)
