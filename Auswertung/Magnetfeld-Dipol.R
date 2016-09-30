@@ -15,7 +15,7 @@ B_LS = abs(F*a_LS/(2*Si))
 s_B_LS = (s_a_LS/a_LS)*B_LS
 R <- c(51.47, 100.8, 300.8, 510.6, 1000)
 plot(R, B_LS, pch=4, ylim = c(0, 14*10^-10))
-plotCI (R, B_LS, uiw=s_B_LS , err="B_LS" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (R, B_LS, uiw=s_B_LS , err="y" , pch=4, cex=0.6 ,add=TRUE)
 
 #Dipol
 
@@ -28,9 +28,11 @@ s_p_LS = p_LS * sqrt((s_B_LS/B_LS)^2 + 3*(s_z_LS/z_LS)^2)
 #Theorie
 
 p_theo = A*U/R
+s_p_theo = 2*pi*0.002*0.0005/R
 B_theo = (mu_0/(2*pi))*(p_theo/z_LS^3)
+s_B_theo = B_theo * sqrt((s_p_theo/p_theo)^2 + 3*(s_z_LS/z_LS)^2)
 points(R, B_theo, pch=4, col="red")
-
+plotCI (R, B_theo, uiw=s_B_theo , err="y" , pch=4, cex=0.6 ,add=TRUE)
 #random Shit - gleiche Reihenfolge wie.txt
 #Magnetfeld
 
@@ -60,7 +62,7 @@ x <- c(33.5, 34.5, 35.0, 35.5, 36.0, 36.5)
 s_x <- c(0.2, 0.2, 0.2, 0.2, 0.2, 0.2)
 
 plot(x, B_KK, pch=4)
-plotCI (x, B_KK, uiw=s_B_KK , err="B_KK" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (x, B_KK, uiw=s_B_KK , err="y" , pch=4, cex=0.6 ,add=TRUE)
 plotCI (x, B_KK, uiw=s_x , err="x" , pch=4, cex=0.6 ,add=TRUE)
 
 #Dipol
