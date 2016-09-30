@@ -15,7 +15,7 @@ B_LS = abs(F*a_LS/(2*Si))
 s_B_LS = (s_a_LS/a_LS)*B_LS
 R <- c(51.47, 100.8, 300.8, 510.6, 1000)
 plot(R, B_LS, pch=4, ylim = c(0, 14*10^-10))
-plotCI (R, B_LS, uiw=s_B_LS , err="y" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (R, B_LS, uiw=abs(s_B_LS) , err="y" , pch=4, cex=0.6 ,add=TRUE)
 
 #Dipol
 

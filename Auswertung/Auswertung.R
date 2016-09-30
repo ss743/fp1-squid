@@ -1,4 +1,4 @@
-setwd("C:/Users/Saskia/Documents/Physik/FP/fp1-squid/Auswertung")
+#setwd("C:/Users/Saskia/Documents/Physik/FP/fp1-squid/Auswertung")
 
 source("Sinusfit.R")
 data = read.csv("KK_36.0_HM1508-2.csv")
@@ -18,3 +18,9 @@ d = parameter[[4]]
 
 
 plot(function(x){a+b*sin(c*x+d)}, xmin, xmax, add = TRUE, col = 'red')
+
+X=((c*x)%%(2*pi))/(2*pi)*360
+Y=abs(y-a)
+
+polar.plot(NA,NA,radial.lim=c(0,2),rp.type="s",cex=1,show.grid.labels=4)
+polar.plot(Y,X,rp.type="s",cex=0.6,point.symbols=4,show.grid=FALSE,show.radial.grid=FALSE,add=TRUE,point.col="blue")
