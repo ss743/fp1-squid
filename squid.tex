@@ -77,6 +77,7 @@
 	\end{minipage}
 	\vskip 30 pt
 }
+\newcommand{\del}[2][]{\frac{\partial #1}{\partial #2}}
 \newcommand{\code}[1]{\texttt{#1}}
 
 
@@ -140,15 +141,60 @@ Ströme innerhalb des Supraleiters induzieren ein Magnetfeld. Ab einer gewissen 
 \subsubsection{Anregung der Elektronen}
 Die Elektronen können auch durch ein äußeres elektromagnetisches Wechselfeld angeregt werden. Mit einer Frequenz des Wechselfelds von $\omega\approx\frac{\Delta E}{\hbar}$ werden die Elektronen über die Bandlücke (siehe \ref{bandluecke}) hinaus angeregt und die Fähigkeit zur Supraleitung geht verloren.
 
-\subsection{London-Gleichungen}
+\subsection{London-Gleichungen\textsuperscript{\cite{anleitung}}}
+Für das Eindringen des Magnetfelds in einen Supraleiter gilt die in \cite{anleitung} hergeleitete London-Gleichung:
+\begin{align}
+	\nabla\times\vec j=-\frac{n_ee^2}{m}\vec B
+\end{align}
+Daraus folgen folgende Gleichungen:
+\begin{align*}
+	\nabla^2\vec B&=\frac{\mu_0n_ee^2}{m}\vec{B}\\
+	\nabla^2\vec j&=\frac{\mu_0n_ee^2}{m}\vec{j}
+\end{align*}
+Die Lösungen dieser Gleichungen sind abfallende Exponentialfunktionen mit einer Reichweite von $\Lambda=\sqrt{\frac m{\mu_0n_ee^2}}$. Aus den Lösungen folgt, dass ein Magnetfeld ein gewisses Stück in den Supraleiter eindringen kann und in dieser Schicht senkrecht zum Magnetfeld eine Stromdichte $\vec j$ fließt, welche das Magnetfeld abschirmt.
 
 \subsection{BCS-Theorie}
+\subsubsection{Überabschirmung der Coulomb-Wechselwirkung}\label{ueberabschirmung}
+Elektronen in einem Kristallgitter wirken eine Anziehungskraft auf die positiv geladenen Atomrümpfe aus. Bei Bewegung der Elektronen werden die Atomrümpfe nun ausgelenkt. Durch ihre größere Masse sind sie langsamer als die Elektronen und brauchen daher länger, um zu ihrer Ursprungsposition zurückzukehren. Deshalb ziehen die Elektronen nun eine Polarisationsspur hinter sich her. Die positiv geladenen Atomrümpfe wechselwirken nun anziehend mit anderen Elektronen, welches eine effektive anziehende Wechselwirkung zwischen zwei Elektronen zur Folge hat. Die Wechselwirkung zweier Elektronen mit den Wellenvektoren $\vec k$ und $\vec k'$ und der Energiedifferenz $\Delta E=\hbar\omega$ lässt sich durch folgenden Ausdruck darstellen: \textsuperscript{\cite{anleitung}}
+\begin{align}
+	V_{\vec k,\vec k'}&=4\pi\cdot\frac{e^2}{q^2-k_0^2}\cdot\frac{\omega^2}{\omega^2-\omega_D^2} & \text{mit }k_0^2&=4\pi e^2\frac{\delta n_0}{\delta \mu}\label{cooper-potential}
+\end{align}
+\subsubsection{Cooper-Paar}
+Durch diese Überabschirmung der Coulomb-Wechselwirkung (siehe \ref{ueberabschirmung}) bilden sich nun Paare von Elektronen aus, welche durch die effektive Anziehung nun schwach gebunden sind. Das Potential aus (\ref{cooper-potential}) ist das Potential der effektiven Anziehung. Wenn nun $\Delta E\approx\hbar\omega_D$, kann sich eine vergleichsweise starke Anziehung ergeben.\\
+
+Elektronen sind Fermionen, sie haben den Spin $S=\frac12$. Fermionen unterliegen der Fermi-Statistik, das heißt bis zur Energie $E_F$ sind fast alle Zustände besetzt, danach sinkt die Besetzungsdichte gegen Null.
+Ein Cooper-Paar als Verkettung zweier $S_\frac12$ - Zustände kann nun als Boson mit ganzzahligem Spin betrachtet werden. Dadurch entsteht in dem Bereich $E_F-\hbar\omega_D<E<E_F+\hbar\omega_D$ eine Energie-Bandlücke.\textsuperscript{\cite{anleitung}}
+\subsubsection{Wechselwirkung zwischen Cooper-Paaren}
+Die Wellenfunktion eines Cooper-Paares lässt sich darstellen als: \textsuperscript{\cite{anleitung}}
+\begin{align}
+	\Phi(\vec{r_1}-\vec{r_2})&=\frac1{V_{\mathrm{ges}}}\sum_{\vec k}\phi_{\vec k}e^{i\vec k(\vec{r_1}-\vec{r_2})}
+\end{align}
+Nun wird folgende Wechselwirkung zwischen zwei Cooper-Paaren definiert:
+\begin{align}
+	\bra{\vec{k_1}\vec{k_2}}V\ket{\vec{k_3}\vec{k_4}}&=\begin{cases}-\frac{V_0}{L^3}&\vec{k_1}+\vec{k_2}=\vec{k_3}+\vec{k_4} \text{ und }|E(\vec{k_i})-E_F|<\hbar\omega\\0&\text{sonst}\end{cases}
+\end{align}
 
 \subsection{Flussquantisierung}
+Bei einem Supraleiter in Form eines Rings, lässt sich der Strom als geschlossenes Wegintegral $$\oint_C\vec j\mathrm d\vec l=0$$ darstellen, welches Null ergeben muss, da ansonsten ein Potentialgradient oder eine Stromänderung vorhanden wäre. Nach dem Stokes'schen Satz ist der magnetische Fluss $Phi_B$ gegeben durch das Wegintegral über das Vektorpotential $\vec{A}$. Außerdem ist die Phase der Wellenfunktion eindeutig festgelegt und darf sich nur um ganzzahlige Vielfache von $2\pi$ ändern. Also gilt:
+\begin{align*}
+	\oint_C\vec A\mathrm d\vec l&=\Phi_B\\
+	\oint_C\nabla\theta\mathrm d\vec l&=\Delta\theta=2\pi n
+\end{align*}
+Daraus folgt nun die Quantisierung für den magnetischen Fluss:
+\begin{align*}
+	|\Phi_B|&=n\frac h{2e}\\
+	&=n\Phi_0
+\end{align*}
+$\Phi_0$ ist das sogenannte Flussquant, oder auch Fluxoid. \textsuperscript{\cite{anleitung}}
+\subsection{Josephson-Effekt}
+Wenn man zwischen zwei Supraleitern einen Isolator einbringt, fließt nun aufgrund der im Isolator exponentiell abfallenden Aufenthaltswahrscheinlichkeiten der Cooper-Paare und der einzelnen Elektronen im Isolator ein Tunnelstrom. Um nun die Gesamtwellenfunktion beschreiben zu können, muss die Wellenfunktion $\Psi_1$ des einen Supraleiters stetig in die Wellenfunktion $\Psi_2$ des anderen Supraleiters übergehen. 
 
 \subsection{SQUID}
+Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät zur Messung von kleinen Magnetfeldänderungen, welches die Flussquantifizierung und andere Effekte der Supraleitung nutzt. SQUIDs existieren in verschiedenen Bauweisen. In diesem Versuch nutzen wir ein RF-SQUID (Radio Frequency SQUID).
 
+\gra{squid}{Aufbau eines RF-SQUIDs}
 
+Das SQUID besteht aus einem supraleitendem Ring mit Josephson-Kontakt und einem elektromagnetischen Schwingkreis. Der Ring wird mit Stickstoff gekühlt, um unter die kritische Temperatur zu kommen.
 
 \newpage
 \section{Versuchsaufbau und -Durchführung}
