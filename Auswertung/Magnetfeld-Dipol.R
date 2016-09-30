@@ -1,6 +1,8 @@
 library("Hmisc")
 library("plotrix")
 
+dev.off()
+
 F = 9.3 * 10^-9
 Si = 1.9
 mu_0 = 4*pi*10^-7
@@ -32,7 +34,7 @@ s_p_theo = 2*pi*0.002*0.0005/R
 B_theo = (mu_0/(2*pi))*(p_theo/z_LS^3)
 s_B_theo = B_theo * sqrt((s_p_theo/p_theo)^2 + 3*(s_z_LS/z_LS)^2)
 points(R, B_theo, pch=4, col="red")
-plotCI (R, B_theo, uiw=s_B_theo , err="y" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (R, B_theo, uiw=abs(s_B_theo) , err="y" , pch=4, cex=0.6 ,add=TRUE)
 #random Shit - gleiche Reihenfolge wie.txt
 #Magnetfeld
 
@@ -62,8 +64,8 @@ x <- c(33.5, 34.5, 35.0, 35.5, 36.0, 36.5)
 s_x <- c(0.2, 0.2, 0.2, 0.2, 0.2, 0.2)
 
 plot(x, B_KK, pch=4)
-plotCI (x, B_KK, uiw=s_B_KK , err="y" , pch=4, cex=0.6 ,add=TRUE)
-plotCI (x, B_KK, uiw=s_x , err="x" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (x, B_KK, uiw=abs(s_B_KK) , err="y" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (x, B_KK, uiw=abs(s_x) , err="x" , pch=4, cex=0.6 ,add=TRUE)
 
 #Dipol
 
