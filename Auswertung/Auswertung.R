@@ -18,4 +18,4 @@ d = parameter[[4]]
 
 
 plot(function(x){a+b*sin(c*x+d)}, xmin, xmax, add = TRUE, col = 'red')
-polar.plot(x, y)
+
