@@ -1,7 +1,7 @@
 library("Hmisc")
 library("plotrix")
 
-dev.off()
+try({dev.off()})
 
 F = 9.3 * 10^-9
 Si = 1.9
