@@ -5,11 +5,11 @@ sinusfit <- function(data){
   y <- data[[2]]
   a0=(max(y)+ min(y))/2
   b0=(max(y)-min(y))/2
-  c0= 7/(2*pi)
+  c0= (2*pi)/7
   d0=5
   
   
-  #plot(function(x){(besselJ(x*alpha0,m))^2},0,10,col="black",add=TRUE)
+  #plot(function(x){a0+b0*sin(c0*x+d0)},0,20,col="green",add=TRUE)
   
   fit = nls(sinus, data, start=list(a=a0, b=b0, c=c0, d=d0))
  
