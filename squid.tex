@@ -145,6 +145,7 @@ Ströme innerhalb des Supraleiters induzieren ein Magnetfeld. Ab einer gewissen 
 Die Elektronen können auch durch ein äußeres elektromagnetisches Wechselfeld angeregt werden. Mit einer Frequenz des Wechselfelds von $\omega\approx\frac{\Delta E}{\hbar}$ werden die Elektronen über die Bandlücke (siehe \ref{bandluecke}) hinaus angeregt und die Fähigkeit zur Supraleitung geht verloren.
 
 \subsection{London-Gleichungen\textsuperscript{\cite{anleitung}}}
+\label{London}
 Für das Eindringen des Magnetfelds in einen Supraleiter gilt die in \cite{anleitung} hergeleitete London-Gleichung:
 \begin{align}
 	\nabla\times\vec j=-\frac{n_ee^2}{m}\vec B
@@ -197,15 +198,43 @@ Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät zur Messu
 
 \gra{squid}{Aufbau eines RF-SQUIDs}
 
-Das SQUID besteht aus einem supraleitendem Ring mit Josephson-Kontakt und einem elektromagnetischen Schwingkreis. Der Ring wird mit Stickstoff gekühlt, um unter die kritische Temperatur zu kommen.
+Das SQUID besteht aus einem supraleitendem Ring mit Josephson-Kontakt und einem hochfrequenten elektromagnetischen Schwingkreis. Der Ring wird mit Stickstoff gekühlt, um unter die kritische Temperatur zu kommen.\\
+
+Von dem Schwingkreis wird ein magnetischer Fluss erzeugt. Im SQUID bilden sich nun Kreisströme aus, die das äußere Feld ausgleichen. Diese Kreisströme entsprechen immer genau einem ganzzahligen Vielfachen von $\Phi_0$. Wenn der benötigte Ausgleichsstrom nun nicht exakt einem ganzzahligen Vielfachen von $\Phi_0$ entspricht, bildet sich ein Abschirmstrom auf der Oberfläche, welcher einen vollständigen Ausgleich des äußeren Felds bewirkt.\\
+
+Wenn der Abschirmstrom nun zu hoch wird, bricht die Supraleitung zusammen. Der Suprastrom im Inneren des Supraleiterrings kann nun von $n\Phi_0$ auf $(n+1)\Phi_0$ ansteigen, wodurch der Abschirmstrom abnimmt und die Supraleitung wieder einsetzt. Der Schwingkreis verliert durch diesen Vorgang Energie, was über das Oszilloskop sichtbar wird.
+
+Mit dem Feld-Fluss-Koeffizienten $F=9.3\,\mathrm{\frac{nT}{\Phi_0}}$ und dem einstellbaren Wert des Feedback-Resistors $s_i$ mit $[s_i]=\mathrm{\frac{V}{\Phi_0}}$ lässt sich nun aus der gemessenen Spannungsdifferenz $\Delta V$ das Magnetfeld berechnen:
+\begin{align}
+	B_z&=F\frac{\Delta V}{s_i}
+\end{align}
+
+\subsection{Magnetfeld einer Leiterschleife}
+Eine stromdurchflossene Leiterschleife induziert ein Magnetfeld. Die magnetische Flussdichte des Magnetfelds im Abstand $z$ zur Leiterschleife beträgt:
+\begin{align*}
+	B_z&=\frac{\mu_0p}{2\pi z^3}
+\end{align*}
+Mit dem Dipolmoment $p=AI=A\frac V{R_i}$, wobei $A$ die eingeschlossene Fläche der Leiterschleife ist, ergibt sich:
+\begin{align}
+B_z&=\frac{\mu_0AV}{2\pi z^3R_i}
+\end{align}
 
 
 \newpage
 \section{Versuchsaufbau und -Durchführung}
 
+\gra[0.8]{aufbau}{Schematische Zeichnung des Versuchsaufbaus\label{aufbau}}
 
+In Abbildung \ref{aufbau} ist der Versuchsaufbau zu sehen. Das Kernstück dieses Aufbaus ist das SQUID in einem isolierenden Behältnis, welches zur Kühlung des SQUID mit flüssigem Stickstoff gefüllt ist. Mit einem Stab werden die Proben in das Gehäuse nahe an das SQUID geführt. Der Stab ist an einem Motor befestigt. Das SQUID ist über eine elektronische Auslese- und Steuerungseinheit mit einem Computer und einem Oszilloskop verbunden.\\
 
+Zunächst wird das SQUID kalibriert, um möglichst gute Ergebnisse zu erzielen. Dazu wird über einen Funktionengenerator der SQUID-Elektronik ein Dreiecksignal erzeugt, welches eine Sinuskurve der Spannung bewirkt. Nun werden die Parameter VCA und VCO des SQUIDs mithilfe des Computerprogramms so angepasst, dass die Amplitude der Spannung möglichst groß ist.\\
 
+Anschließend wird das Magnetfeld einer Leiterschleife mit verschiedenen Widerständen vermessen. Dazu wird ein Stab mit der Leiterschleife an den Motor angeschlossen und nun mit konstanter Geschwindigkeit um die eigene Achse gedreht. So entsteht eine Änderung des Magnetfelds, aus welcher wir das Magnetfeld bestimmen können.\\
+
+Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen hier einen Kronkorken, einen Ohrring, einen Spitzer, ein Geldstück, einen Magnetspan und einen Stein. Für den Kronkorken führen wir die Messung mehrmals bei verschiedenen Abständen durch. Den Ohrring und den Spitzer befestigten wir wie in Abbildung \ref{ohrspitzer} zu sehen.
+
+\vskip10pt
+\graTwo[0.35]{ohrring}{spitzer}{\label{ohrspitzer}Befestigung von Ohrring und Spitzer}
 \newpage
 \section{Auswertung}
 
