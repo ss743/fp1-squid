@@ -247,7 +247,7 @@ Zunächst wird das SQUID kalibriert, um möglichst gute Ergebnisse zu erzielen. 
 
 Anschließend wird das Magnetfeld einer Leiterschleife mit fünf verschiedenen Widerständen $R1$, $R2$, $R3$, $R4$, $R5$ vermessen. Dazu wird ein Stab mit der Leiterschleife an den Motor angeschlossen und nun mit konstanter Geschwindigkeit um die eigene Achse gedreht. So entsteht eine Änderung des Magnetfelds, aus welcher wir das Magnetfeld bestimmen können.\\
 
-Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen hier einen Kronkorken, einen Ohrring, einen Spitzer, ein Geldstück, einen Magnetspan und einen Stein. Für den Kronkorken führen wir die Messung mehrmals bei verschiedenen Abständen durch. Den Ohrring und den Spitzer befestigten wir wie in Abbildung \ref{ohrspitzer} zu sehen.
+Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen hier einen Kronkorken, einen Ohrring, einen Spitzer, ein Geldstück, einen Magnetspan und einen Stein. Für den Kronkorken führen wir die Messung mehrmals bei verschiedenen Abständen durch, um die Abhängigkeit des Magnetfeldes zum Abstand zu überprüfen. Den Ohrring und den Spitzer befestigten wir wie in Abbildung \ref{ohrspitzer} zu sehen.
 
 \vskip10pt
 \graTwo[0.35]{ohrring}{spitzer}{\label{ohrspitzer}Befestigung von Ohrring und Spitzer}
@@ -314,6 +314,7 @@ Für die Erstellung der Polarplots sind nun neben dem Fitparameter $b$ ebenfalls
 \phi = \omega \cdot t
 \end{align*}
 
+Wir tragen in der Auswertung das Magnetfeld in nT über den Winkel auf. 
 \newpage
 \subsection{Leiterschleife}
 \subsubsection{Gemessene Werte }
@@ -575,6 +576,15 @@ B_z&=(1.696\pm0.015)\,\mathrm{nT}\\
 p&=(6.7\pm0.3)\,\mathrm{mm^2A}
 \end{align*}
 
+\newpage
+\subsubsection{Abhängigkeit des Magnetfeldes vom Abstand}
+
+Wir erwarten theoretisch folgenden Zusammenhang zwischen Magnetfeld und Abstand z zwischen Probe und Detektor: $B(R) \propto 1/R^3 $
+Diesen Zusammenhang überprüfen wir, indem wir die magnetische Flussdichte über den Abstand auftragen und einen $\frac{1}{z³}$-Fit durchführen.
+
+\gra[1]{Kronkorken}{Kronkorken: Abhängigkeit des Magnetfeldes vom Abstand \label{KK}}
+
+Aus Abbildung \ref{KK} entnehmen wir, dass der Offset im Rahmen des Fehlers wider Erwarten nicht null beträgt. Außerdem scheint der Wert, der einem x-Abstand von 34.5 cm beträgt (siehe \ref{34.5}), einen Ausreißer darzustellen (siehe \ref{Diskussion}). Unter Berücksichtigung der Unsicherheiten ist der erwartete Verlauf jedoch noch zu erkennen.
 \newpage
 \section{Zusammenfassung und Diskussion \label{Diskussion}}
 
