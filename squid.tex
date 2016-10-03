@@ -68,12 +68,21 @@
 	\end{minipage}
 	\vskip 30 pt
 }
-\newcommand{\graTwo}[4][0.5]{
+\newcommand{\graTwo}[4][0.49]{
 	\begin{minipage}[h!]{\textwidth}
 		\centering
 		\includegraphics[width=#1\textwidth]{figures/#2.png}
 		\includegraphics[width=#1\textwidth]{figures/#3.png}
 		\captionof{figure}{#4}
+	\end{minipage}
+	\vskip 30 pt
+}
+\newcommand{\graTwoB}[5]{
+	\begin{minipage}[h!]{\textwidth}
+		\centering
+		\includegraphics[width=#1\textwidth]{figures/#3.png}
+		\includegraphics[width=#2\textwidth]{figures/#4.png}
+		\captionof{figure}{#5}
 	\end{minipage}
 	\vskip 30 pt
 }
@@ -102,7 +111,7 @@ In diesem Versuch soll die Anwendung von Supraleitern zum hochpräzisen  Messen 
 \pagenumbering{arabic} %verstecke Seitenzahl
 \section{Einleitung}
 
-Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät, welches den Effekt der Supraleitung ausnutzt, um Magnetfelder zu messen. In diesem Versuch benutzen wir ein SQUID, um das Magnetfeld einer Leiterschleifen mit verschiedenen Widerständen und verschiedener sonstiger Gegenstände zu vermessen. Daraus bestimmen wir die Dipolmomente der Leiterschleife und der Gegenstände.
+Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät, welches den Effekt der Supraleitung ausnutzt, um Magnetfelder zu messen. In diesem Versuch benutzen wir ein SQUID, um das Magnetfeld einer Leiterschleifen mit verschiedenen Widerständen und verschiedener sonstiger Gegenstände zu vermessen. Daraus bestimmen wir die Dipolmomente der Leiterschleife und der Gegenstände. Außerdem betrachten wir das Magnetfeld in Abhängigkeit des Drehwinkels der Proben.
 
 
 \newpage
@@ -130,9 +139,9 @@ Oberhalb der kritischen Temperatur verhält sich der Widerstand eines Supraleite
 \subsection{Magnetische Eigenschaften}
 \gra{meissner-ochsenfeld}{Supraleiter im Magnetfeld (Meissner-Ochsenfeld-Effekt)\label{meissner-ochsenfeld}\textsuperscript{\cite{staat}}}
 \subsubsection{Meissner-Ochsenfeld-Effekt}
-Unterhalb der kritischen Temperatur $T_c$ wird ein angelegtes äußeres Magnetfeld durch ein inneres Magnetfeld aufgrund eines Abschirmstroms kompensiert. Diesen Effekt nennt man den Meissner-Ochsenfeld-Effekt\textsuperscript{\cite{anleitung}}. Innerhalb des Supraleiters gilt also für das Magnetfeld $\vec B=0$. Dies entspricht jedoch nicht einer perfekten Leitfähigkeit, da bei dieser das Magnetfeld erhalten bliebe. Dies ist bei Supraleitern des \textbf{Typ I} der Fall.
+Unterhalb der kritischen Temperatur $T_c$ wird ein angelegtes äußeres Magnetfeld durch ein inneres Magnetfeld aufgrund eines Abschirmstroms kompensiert. Diesen Effekt nennt man den Meissner-Ochsenfeld-Effekt\textsuperscript{\cite{anleitung}}. Innerhalb des Supraleiters gilt also für das Magnetfeld $\vec B=0$. Dies entspricht jedoch nicht einer perfekten Leitfähigkeit, da bei dieser das Magnetfeld erhalten bliebe. Bei Supraleitern des \textbf{Typ I} wird das Magnetfeld wie hier beschrieben komplett kompensiert.
 \subsubsection{Hochtemperatursupraleiter}
-Supraleiter des \textbf{Typ II}, sogenannte Hochtemperatursupraleiter, können auch trotz eines inneren Magnetfelds Supraleitung aufweisen. In diesen Supraleitern bilden sich sogenannte Flussfäden aus, welche ein von Null verschiedenes Magnetfeld aufweisen und normalleitend sind. Der Rest des Supraleiters befindet sich jedoch im supraleitenden Zustand.
+Supraleiter des \textbf{Typ II}, sogenannte Hochtemperatursupraleiter, können auch trotz eines inneren Magnetfelds Supraleitung aufweisen. In diesen Supraleitern bilden sich sogenannte Flussfäden aus, welche ein von Null verschiedenes Magnetfeld aufweisen und normalleitend sind. Der Rest des Supraleiters befindet sich im supraleitenden Zustand und weist ein Magnetfeld $\vec B=0$ auf.
 
 \subsection{Aufbrechen der Supraleitung}
 \subsubsection{Kritische Temperatur}
@@ -164,7 +173,7 @@ Elektronen in einem Kristallgitter wirken eine Anziehungskraft auf die positiv g
 	V_{\vec k,\vec k'}&=4\pi\cdot\frac{e^2}{q^2-k_0^2}\cdot\frac{\omega^2}{\omega^2-\omega_D^2} & \text{mit }k_0^2&=4\pi e^2\frac{\delta n_0}{\delta \mu}\label{cooper-potential}
 \end{align}
 \subsubsection{Cooper-Paar}
-Durch diese Überabschirmung der Coulomb-Wechselwirkung (siehe \ref{ueberabschirmung}) bilden sich nun Paare von Elektronen aus, welche durch die effektive Anziehung nun schwach gebunden sind. Das Potential aus (\ref{cooper-potential}) ist das Potential der effektiven Anziehung. Wenn nun $\Delta E\approx\hbar\omega_D$, kann sich eine vergleichsweise starke Anziehung ergeben.\\
+Durch diese Überabschirmung der Coulomb-Wechselwirkung (siehe \ref{ueberabschirmung}) bilden sich nun Paare von Elektronen aus, welche durch die effektive Anziehung schwach gebunden sind. Das Potential aus Gleichung (\ref{cooper-potential}) ist das Potential der effektiven Anziehung. Wenn nun $\Delta E\approx\hbar\omega_D$, kann sich eine vergleichsweise starke Anziehung ergeben.\\
 
 Elektronen sind Fermionen, sie haben den Spin $S=\frac12$. Fermionen unterliegen der Fermi-Statistik, das heißt bis zur Energie $E_F$ sind fast alle Zustände besetzt, danach sinkt die Besetzungsdichte gegen Null.
 Ein Cooper-Paar als Verkettung zweier $S_\frac12$ - Zustände kann nun als Boson mit ganzzahligem Spin betrachtet werden. Dadurch entsteht in dem Bereich $E_F-\hbar\omega_D<E<E_F+\hbar\omega_D$ eine Energie-Bandlücke.\textsuperscript{\cite{anleitung}}
@@ -179,7 +188,14 @@ Nun wird folgende Wechselwirkung zwischen zwei Cooper-Paaren definiert:
 \end{align}
 
 \subsection{Flussquantisierung}
-Bei einem Supraleiter in Form eines Rings, lässt sich der Strom als geschlossenes Wegintegral $$\oint_C\vec j\mathrm d\vec l=0$$ darstellen, welches Null ergeben muss, da ansonsten ein Potentialgradient oder eine Stromänderung vorhanden wäre. Nach dem Stokes'schen Satz ist der magnetische Fluss $Phi_B$ gegeben durch das Wegintegral über das Vektorpotential $\vec{A}$. Außerdem ist die Phase der Wellenfunktion eindeutig festgelegt und darf sich nur um ganzzahlige Vielfache von $2\pi$ ändern. Also gilt:
+Ebenfalls zur Beschreibung von Supraleitern lässt sich die Ginzburg-Landau-Theorie\textsuperscript{\cite{anleitung}} nutzen. In dieser Theorie betracht man den Zwei-Teilchen-Zustand eines Cooper-Paares als ein einziges Gesamtsystem. Nun lässt sich ein Ausdruck für den Zwei-Teilchen-Strom bestimmen\textsuperscript{\cite{anleitung}}:
+\begin{align}
+	\vec j&=\frac{i\hbar}{2m}\left(\psi\nabla\psi^* -\psi*\nabla\psi\right)\\
+	&=\frac1m\Re{\psi^*p\psi}&\text{mit }&p=-i\hbar\nabla-\frac qc\vec A\\
+	&=-\frac{e}{2m}\left(\psi*\left(\left(-i\hbar\nabla-\frac qc\vec A\right)\psi\right)+c.c.\right)\\
+	&=-\left(\frac{2e^2}{mc}\vec A+\frac{e\hbar}{m}\nabla\theta\right)|\psi|^2&\text{mit }&\psi=|\psi|e^{i\theta}\text{ (}|\psi|\text{ konstant)}\label{ginzburg-landau}
+\end{align}
+Bei einem Supraleiter in Form eines Rings lässt sich der Strom als geschlossenes Wegintegral $$\oint_C\vec j\mathrm d\vec l=0$$ darstellen, welches Null ergeben muss, da ansonsten ein Potentialgradient oder eine Stromänderung vorhanden wäre. Nach dem Stokes'schen Satz ist der magnetische Fluss $\Phi_B$ gegeben durch das Wegintegral über das Vektorpotential $\vec{A}$. Außerdem ist die Phase der Wellenfunktion eindeutig festgelegt und darf sich nur um ganzzahlige Vielfache von $2\pi$ ändern. Also gilt mit Gleichung (\ref{ginzburg-landau}):
 \begin{align*}
 	\oint_C\vec A\mathrm d\vec l&=\Phi_B\\
 	\oint_C\nabla\theta\mathrm d\vec l&=\Delta\theta=2\pi n
@@ -189,7 +205,7 @@ Daraus folgt nun die Quantisierung für den magnetischen Fluss:
 	|\Phi_B|&=n\frac h{2e}\\
 	&=n\Phi_0
 \end{align*}
-$\Phi_0$ ist das sogenannte Flussquant, oder auch Fluxoid. \textsuperscript{\cite{anleitung}}
+$\Phi_0$ ist das sogenannte Flussquant, oder auch Fluxoid\textsuperscript{\cite{anleitung}}.
 \subsection{Josephson-Effekt}
 Wenn man zwischen zwei Supraleitern einen Isolator einbringt, fließt nun aufgrund der im Isolator exponentiell abfallenden Aufenthaltswahrscheinlichkeiten der Cooper-Paare und der einzelnen Elektronen im Isolator ein Tunnelstrom. Um nun die Gesamtwellenfunktion beschreiben zu können, muss die Wellenfunktion $\Psi_1$ des einen Supraleiters stetig in die Wellenfunktion $\Psi_2$ des anderen Supraleiters übergehen. 
 
@@ -200,7 +216,7 @@ Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät zur Messu
 
 Das SQUID besteht aus einem supraleitendem Ring mit Josephson-Kontakt und einem hochfrequenten elektromagnetischen Schwingkreis. Der Ring wird mit Stickstoff gekühlt, um unter die kritische Temperatur zu kommen.\\
 
-Von dem Schwingkreis wird ein magnetischer Fluss erzeugt. Im SQUID bilden sich nun Kreisströme aus, die das äußere Feld ausgleichen. Diese Kreisströme entsprechen immer genau einem ganzzahligen Vielfachen von $\Phi_0$. Wenn der benötigte Ausgleichsstrom nun nicht exakt einem ganzzahligen Vielfachen von $\Phi_0$ entspricht, bildet sich ein Abschirmstrom auf der Oberfläche, welcher einen vollständigen Ausgleich des äußeren Felds bewirkt.\\
+Von dem Schwingkreis wird ein magnetischer Fluss erzeugt. Im SQUID bilden sich nun Kreisströme aus, die das äußere Feld ausgleichen. Diese Kreisströme entsprechen immer genau einem ganzzahligen Vielfachen von $\Phi_0$. Wenn der benötigte Ausgleichsstrom nun nicht exakt einem ganzzahligen Vielfachen von $\Phi_0$ entspricht, bildet sich ein Abschirmstrom auf der Oberfläche (siehe \ref{London}), welcher einen vollständigen Ausgleich des äußeren Felds bewirkt.\\
 
 Wenn der Abschirmstrom nun zu hoch wird, bricht die Supraleitung zusammen. Der Suprastrom im Inneren des Supraleiterrings kann nun von $n\Phi_0$ auf $(n+1)\Phi_0$ ansteigen, wodurch der Abschirmstrom abnimmt und die Supraleitung wieder einsetzt. Der Schwingkreis verliert durch diesen Vorgang Energie, was über das Oszilloskop sichtbar wird.
 
@@ -227,7 +243,7 @@ B_z&=\frac{\mu_0AV}{2\pi z^3R_i}
 
 In Abbildung \ref{aufbau} ist der Versuchsaufbau zu sehen. Das Kernstück dieses Aufbaus ist das SQUID in einem isolierenden Behältnis, welches zur Kühlung des SQUID mit flüssigem Stickstoff gefüllt ist. Mit einem Stab werden die Proben in das Gehäuse nahe an das SQUID geführt. Der Stab ist an einem Motor befestigt. Das SQUID ist über eine elektronische Auslese- und Steuerungseinheit mit einem Computer und einem Oszilloskop verbunden.\\
 
-Zunächst wird das SQUID kalibriert, um möglichst gute Ergebnisse zu erzielen. Dazu wird über einen Funktionengenerator der SQUID-Elektronik ein Dreiecksignal erzeugt, welches eine Sinuskurve der Spannung bewirkt. Nun werden die Parameter VCA und VCO des SQUIDs mithilfe des Computerprogramms so angepasst, dass die Amplitude der Spannung möglichst groß ist.\\
+Zunächst wird das SQUID kalibriert, um möglichst gute Ergebnisse zu erzielen. Dazu wird über einen Funktionsgenerator innerhalb der SQUID-Elektronik ein Dreiecksignal erzeugt, welches eine Sinuskurve der Spannung bewirkt. Nun werden die Parameter VCA und VCO des SQUIDs mithilfe des Computerprogramms so angepasst, dass die Amplitude der Spannung möglichst groß ist.\\
 
 Anschließend wird das Magnetfeld einer Leiterschleife mit verschiedenen Widerständen vermessen. Dazu wird ein Stab mit der Leiterschleife an den Motor angeschlossen und nun mit konstanter Geschwindigkeit um die eigene Achse gedreht. So entsteht eine Änderung des Magnetfelds, aus welcher wir das Magnetfeld bestimmen können.\\
 
@@ -237,7 +253,25 @@ Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen
 \graTwo[0.35]{ohrring}{spitzer}{\label{ohrspitzer}Befestigung von Ohrring und Spitzer}
 \newpage
 \section{Auswertung}
-
+\subsection{Leiterschleife}
+\graTwoB{0.65}{0.34}{R1_Sinusfit}{R1_polar-plot}{Widerstand R1}
+\graTwoB{0.65}{0.34}{R2_Sinusfit}{R2_polar-plot}{Widerstand R2}
+\graTwoB{0.65}{0.34}{R3_Sinusfit}{R3_polar-plot}{Widerstand R3}
+\graTwoB{0.65}{0.34}{R4_Sinusfit}{R4_polar-plot}{Widerstand R4}
+\graTwoB{0.65}{0.34}{R5_Sinusfit}{R5_polar-plot}{Widerstand R5}
+\subsection{Gegenstände}
+\graTwoB{0.65}{0.34}{Geld_Sinusfit}{Geld_polar-plot}{Geldstück}
+\graTwoB{0.65}{0.34}{Magnetspan_Sinusfit}{Magnetspan_polar-plot}{Magnetspan}
+\graTwoB{0.65}{0.34}{Ohrring_Sinusfit}{Ohr_polar-plot}{Ohrring}
+\graTwoB{0.65}{0.34}{Spitzer_Sinusfit}{Spitzer_polar-plot}{Spitzer}
+\graTwoB{0.65}{0.34}{Stein_Sinusfit}{Stein_polar-plot}{Stein}
+\subsection{Kronkorken}
+\graTwoB{0.65}{0.34}{KK_33-5_Sinusfit}{KK_33-5_polar-plot}{Kronkorken bei $z=33.5\,\mathrm{cm}$}
+\graTwoB{0.65}{0.34}{KK_34-5_Sinusfit}{KK_34-5_polar-plot}{Kronkorken bei $z=34.5\,\mathrm{cm}$}
+\graTwoB{0.65}{0.34}{Kronkorken_Sinusfit}{KK_35-0_polar-plot}{Kronkorken bei $z=35.0\,\mathrm{cm}$}
+\graTwoB{0.65}{0.34}{KK_35-5_Sinusfit}{KK_35-5_polar-plot}{Kronkorken bei $z=35.5\,\mathrm{cm}$}
+\graTwoB{0.65}{0.34}{KK_36-0_Sinusfit}{KK_36-0_polar-plot}{Kronkorken bei $z=36.0\,\mathrm{cm}$}
+\graTwoB{0.65}{0.34}{KK_36-5_Sinusfit}{KK_36-5_polar-plot}{Kronkorken bei $z=36.5\,\mathrm{cm}$}
 
 \newpage
 \section{Zusammenfassung und Diskussion}
