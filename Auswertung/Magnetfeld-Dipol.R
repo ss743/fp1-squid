@@ -43,6 +43,7 @@ b = parameter2[[2]]
 
 
 plot(function(x){a+b/x},0,1000, add = TRUE, col = 'black')
+text(x=600, y=10^-9, "B(R)= (3.4+-3.5)*10^-12+(4.36+-0.03)*10^-8/R", cex=0.75)
 
 #Theorie
 
@@ -53,16 +54,12 @@ s_B_theo = B_theo * sqrt((s_p_theo/p_theo)^2 + 3*(s_z_LS/z_LS)^2)
 points(R, B_theo, pch=4, col="red")
 plotCI (R, B_theo, uiw=abs(s_B_theo) , err="y" , pch=4, cex=0.6 ,add=TRUE)
 
-#einsdurch(input_data3)
-input_data3=data.frame(x=R, y=B_theo)
-
-parameter3=einsdurch(input_data3)
-a = parameter3[[1]]
-b = parameter3[[2]]
 
 
 
 
+a = 0
+b = mu_0 * A * U/(2*pi*z_LS^3)
 
 
 plot(function(x){a+b/x},0,1000, add = TRUE, col = 'red')

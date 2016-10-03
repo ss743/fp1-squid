@@ -227,12 +227,12 @@ Mit dem Feld-Fluss-Koeffizienten $F=9.3\,\mathrm{\frac{nT}{\Phi_0}}$ und dem ein
 
 \subsection{Magnetfeld einer Leiterschleife}
 Eine stromdurchflossene Leiterschleife induziert ein Magnetfeld. Die magnetische Flussdichte des Magnetfelds im Abstand $z$ zur Leiterschleife beträgt:
-\begin{align*}
-	B_z&=\frac{\mu_0p}{2\pi z^3}
-\end{align*}
+\begin{align}
+	B_z&=\frac{\mu_0p}{2\pi z^3} \label{Dipol}
+\end{align} 
 Mit dem Dipolmoment $p=AI=A\frac V{R_i}$, wobei $A$ die eingeschlossene Fläche der Leiterschleife ist, ergibt sich:
 \begin{align}
-B_z&=\frac{\mu_0AV}{2\pi z^3R_i}
+B_z&=\frac{\mu_0AV}{2\pi z^3R_i} \label{11}
 \end{align}
 
 
@@ -245,7 +245,7 @@ In Abbildung \ref{aufbau} ist der Versuchsaufbau zu sehen. Das Kernstück dieses
 
 Zunächst wird das SQUID kalibriert, um möglichst gute Ergebnisse zu erzielen. Dazu wird über einen Funktionsgenerator innerhalb der SQUID-Elektronik ein Dreiecksignal erzeugt, welches eine Sinuskurve der Spannung bewirkt. Nun werden die Parameter VCA und VCO des SQUIDs mithilfe des Computerprogramms so angepasst, dass die Amplitude der Spannung möglichst groß ist.\\
 
-Anschließend wird das Magnetfeld einer Leiterschleife mit verschiedenen Widerständen vermessen. Dazu wird ein Stab mit der Leiterschleife an den Motor angeschlossen und nun mit konstanter Geschwindigkeit um die eigene Achse gedreht. So entsteht eine Änderung des Magnetfelds, aus welcher wir das Magnetfeld bestimmen können.\\
+Anschließend wird das Magnetfeld einer Leiterschleife mit fünf verschiedenen Widerständen $R1$, $R2$, $R3$, $R4$, $R5$ vermessen. Dazu wird ein Stab mit der Leiterschleife an den Motor angeschlossen und nun mit konstanter Geschwindigkeit um die eigene Achse gedreht. So entsteht eine Änderung des Magnetfelds, aus welcher wir das Magnetfeld bestimmen können.\\
 
 Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen hier einen Kronkorken, einen Ohrring, einen Spitzer, ein Geldstück, einen Magnetspan und einen Stein. Für den Kronkorken führen wir die Messung mehrmals bei verschiedenen Abständen durch. Den Ohrring und den Spitzer befestigten wir wie in Abbildung \ref{ohrspitzer} zu sehen.
 
@@ -253,12 +253,193 @@ Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen
 \graTwo[0.35]{ohrring}{spitzer}{\label{ohrspitzer}Befestigung von Ohrring und Spitzer}
 \newpage
 \section{Auswertung}
+
+\paragraph{Magnetfeld}Am Oszilloskop wird die durch die Drehung der Probe entstehende Sinuskurve aufgezeichnet. Für die Auswertung führen wir daher für alle aufgenommenen Datensätze Sinusfits folgender Form durch:
+
+\begin{align}
+U(t) = a + b\cdot sin(c\cdot t+d) \label{U}
+\end{align}
+
+Aus dem Fitparameter $b$ erhält man die Spannungsdifferenz $\Delta U = \left\| b \right\| $, aus der sich wiederum der magnetische Fluss berechnen lässt:
+
+\begin{align}
+B_z = \frac{\Delta U \cdot F }{2 \cdot s_i} \label{B}
+\end{align}
+
+wobei 
+
+\begin{itemize}
+\item $ F = 9.3 nT/\phi_0$  Feld-Fluss-Koeffizient laut Hersteller
+\item $s_i = 1.9 V/phi_{0}$ eingestellter Wert des Feedback-Resistors
+\end{itemize}
+
+Der Fehler berrechnet sich mit Gauß'scher Fehlerfortpflanzung wie folgt:
+
+\begin{align}
+s_{B_z} = B_Z \cdot \frac{s_{\Delta U}}{\Delta U}
+\end{align}
+
+wobei $s_{\Delta U}$ der Unsicherheit des Fitparameters $b$ entspricht.
+
+\paragraph{Dipolmoment} Aus dem Magnetfeld lässt sich nach \ref{Dipol} nun das Dipolmoment berechnen:
+
+\begin{align}
+p = \frac{2\pi B_z z³}{\mu_0} \label{p}
+\end{align}
+
+wobei 
+\begin{itemize}
+\item $mu_0 = 4 \pi \cdot 10^{-7} \frac{N}{A²}$
+\item $z$ = Abstand zwischen Probe und Detektor
+\end{itemize}
+
+Auch hier berrechnet sich der Fehler mit Gauß'scher Fehlerfortpflanzung:
+
+\begin{align}
+s_p = p \cdot \sqrt{\left( \frac{s_{B_z}}{B_z}\right)^2  + \left(3\cdot \frac{s_z}{z}\right)^2}
+\end{align}
+
+Der Fehler auf den Abstand zwischen Probe und Detektor ergibt sich aus der abgeschätzten Unsicherheit auf die Abstandsmessungen (siehe \ref{Laborbuch}).	
+
+\paragraph{Polarplot} Ein Polarplot verwendet statt karthesischer Koordinaten Polarkoordinaten, die sich wie folgt aus den karthesischen Koordinaten ergeben:
+
+\begin{align*}
+\rho = \sqrt{x²+y²}\\
+\phi = \arctan(\frac{x}{y})
+\end{align*}
+
+Für die Erstellung der Polarplots sind nun neben dem Fitparameter $b$ ebenfalls der Offset $a$ sowie die Winkelgeschwindigkeit $c = \omega$ von Bedeutung. Die Phase $d$ spielt für die Auswertung generell keine Rolle. Die Umrechung in Polarkoordinaten wird somit zu:
+\begin{align*}
+\rho = \left| B_z(t) \right| \\
+\phi = \omega \cdot t
+\end{align*}
+
+\newpage
 \subsection{Leiterschleife}
-\graTwoB{0.65}{0.34}{R1_Sinusfit}{R1_polar-plot}{Widerstand R1}
-\graTwoB{0.65}{0.34}{R2_Sinusfit}{R2_polar-plot}{Widerstand R2}
-\graTwoB{0.65}{0.34}{R3_Sinusfit}{R3_polar-plot}{Widerstand R3}
-\graTwoB{0.65}{0.34}{R4_Sinusfit}{R4_polar-plot}{Widerstand R4}
-\graTwoB{0.65}{0.34}{R5_Sinusfit}{R5_polar-plot}{Widerstand R5}
+\subsubsection{Gemessene Werte }
+\paragraph{Widerstand 1}\ \\
+\graTwoB{0.65}{0.34}{R1_Sinusfit}{R1_polar-plot}{Widerstand R1 \label{R1}}
+
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 1 (siehe Abbildung \ref{R1}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.4152\pm0.0003)\mathrm V-(0.3485\pm0.0005)\mathrm V\cdot \sin((0.8665 \pm 0.0002)\mathrm{s^{-1}}\cdot t + (5.744 \pm 0.003))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(853.9 \pm 1.2)\,\mathrm{pT}\\
+	p&=(0.44 \pm 0.03)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 2}\ \\
+
+\graTwoB{0.65}{0.34}{R2_Sinusfit}{R2_polar-plot}{Widerstand R2 \label{R2}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 2 (siehe Abbildung \ref{R2}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.4107\pm0.0002)\mathrm V-(0.1772\pm0.0003)\mathrm V\cdot \sin((0.8722 \pm 0.0003)\mathrm{s^{-1}}\cdot t + (16.041 \pm 0.003))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(433.8 \pm 0.7)\,\mathrm{pT}\\
+	p&=(0.253 \pm 0.016)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 3}\ \\
+\graTwoB{0.65}{0.34}{R3_Sinusfit}{R3_polar-plot}{Widerstand R3 \label{R3}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 3 (siehe Abbildung \ref{R3}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+U(t)=(0.35603\pm0.00019)\mathrm V-(0.0589\pm0.0003)\mathrm V\cdot \sin((0.8777 \pm 0.0008)\mathrm{s^{-1}}\cdot t + (6.198 \pm 0.009))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(144.2 \pm 0.7 \,\mathrm{pT}\\
+	p&=(0.075 \pm 0.006)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 4}\ \\
+\graTwoB{0.65}{0.34}{R4_Sinusfit}{R4_polar-plot}{Widerstand R4 \label{R4}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 4 (siehe Abbildung \ref{R4}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.3555\pm0.0003)\mathrm V-(0.0352\pm0.0004)\mathrm V\cdot \sin((0.866 \pm 0.002)\mathrm{s^{-1}}\cdot t + (6.84 \pm 0.02))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(86.2 \pm 0.10)\,\mathrm{pT}\\
+	p&=(0.045 \pm 0.003)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 5}\ \\
+\graTwoB{0.65}{0.34}{R5_Sinusfit}{R5_polar-plot}{Widerstand R5 \label{R5}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 5 (siehe Abbildung \ref{R5}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.3418\pm0.0003)\mathrm V+(0.0222\pm0.0003)\mathrm V\cdot \sin((0.829 \pm 0.003)\mathrm{s^{-1}}\cdot t + (6.09 \pm 0.03))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(54.4 \pm 0.09)\,\mathrm{pT}\\
+	p&=(0.028 \pm 0.002)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\subsubsection{Theoretische Werte}
+
+Für die Leiterschleife lässt sich das Dipolmoment nicht nur aus den gemessenen Werten bestimmen, sondern auch theoretische berechnen (siehe \ref{11}). Es gilt:
+
+\begin{align*}
+p &= A \cdot \frac{U}{R_i} &\text{mit } s_p = \sqrt{\left( \frac{s_U}{U}\right)^2  + \left( \frac{s_A}{A} \right)^2 + \left( \frac{s_{R_i}}{R_i}\right)^2 } 
+\end{align*}
+
+wobei:
+
+\begin{itemize}
+\item $A = \pi \cdot r² $ Fläche der Leiterschleife mit Radius $r$
+\item $R_i$ Widerstand der Leiterschleife (siehe Tabelle \ref{Tab}) mit der Unsicherheit $s_{R_i}$
+\item$U$ Spannung der Batterien der Leiterschleife \ref{Laborbuch} mit $s_u = 0.5 \% \pm 1$ digit
+\end{itemize}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c|c|c|c|c}
+	Bezeichnung& 1& 2& 3& 4& 5 \\ \hline
+	$R_i/k \Omega$ & 51,47&	100,8& 300,8 & 510,6 & 1000\\ 
+	\end{tabular} 
+\caption{Widerstände der Leiterschleife}	\label{Tab}
+\end{table}
+
+
+Wir erhalten für die verschiedenen Widerstände folgende Werte: 
+
+\begin{itemize}
+\item R1: $p = (0.65 \pm 0.12) A mm²$
+\item R2: $p = (0.33 \pm 0.06) A mm²$
+\item R3: $p = (0.11 \pm 0.02) A mm²$
+\item R4: $p = (0.066 \pm 0.012) A mm²$
+\item R5: $p = (0.037 \pm 0.006) A mm²$
+\end{itemize}
+
+Aus diesen lässt sich mit \ref{11} nun das Magnetfeld berechnen (wobei sich der Fehler analog mit Fehlerfortpflanzung berechnet):
+
+\begin{itemize}
+\item R1: $B_z = (1260 \pm 252) pT$
+\item R2: $B_z = (643 \pm 129) pT$
+\item R3: $B_z = (215 \pm 43 ) pT$
+\item R4: $B_z = (127 \pm 25) pT$
+\item R5: $B_z = (65 \pm 13) pT$
+\end{itemize}
+
+\subsubsection{Vergleich der theoretischen Werte mit den Messwerten }
+
+Um die theoretischen Werte mit den gemessenen Werten zu vergleichen, tragen wir die errechneten Magnetfelder jeweils über den Widerstand auf (die theoretischen Werte sind dabei in rot dargestellt, die gemessenen in schwarz):
+
+\gra[1]{Leiterschleife}{Vergleich Theorie und Messung der Leiterschleife \label{LS}}
+
+Da wir theoretisch einen Verlauf $B(R) \propto 1/R $ erwarten, haben wir eine Funktion dieser Form an die Messdaten gefittet. Die Kurve der theoretischen Werte ist durch Gleichung \ref{11} gegeben.
+Die Messdaten folgen dem erwarteten 1/R - Verlauf (siehe \ref{LS}), der Offset ist wie erwartet im Rahmen des Fehlers null. Es scheint in den Messungen allerdings einen systematischen Fehler zu geben, der zu Abweichungen nach unten vom theoretischen Verlauf führt(siehe \ref{Diskussion}).
+
+\newpage
 \subsection{Gegenstände}
 \subsubsection{Geldstück}
 \graTwoB{0.65}{0.34}{Geld_Sinusfit}{Geld_polar-plot}{Geldstück}
@@ -395,7 +576,7 @@ p&=(6.7\pm0.3)\,\mathrm{mm^2A}
 \end{align*}
 
 \newpage
-\section{Zusammenfassung und Diskussion}
+\section{Zusammenfassung und Diskussion \label{Diskussion}}
 
 
 \newpage
@@ -420,7 +601,7 @@ p&=(6.7\pm0.3)\,\mathrm{mm^2A}
 %\centering
 %\includegraphics[width=0.9\textwidth]{figures/IMG_20151002_141014.jpg}
 %\end{minipage}
-
+\label{Laborbuch}
 \newpage
 \listoffigures
 
