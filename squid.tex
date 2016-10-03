@@ -99,7 +99,12 @@
 
 \section*{Abstract}
 
-In diesem Versuch soll die Anwendung von Supraleitern zum hochpräzisen  Messen von Magnetfeldern untersucht werden. Hierzu verwenden wir einen \textbf{S}uperconducting \textbf{QU}antum \textbf{I}nterference \textbf{D}evice (SQUID), der im Wesentlichen aus einem Supraleiterring und einem Schwingkreis besteht. Von einigen Proben, darunter einer Leiterschleife mit fünf verschiedenen Widerständen, wird so das Dipolmoment und die Feldstärke gemessen.
+In diesem Versuch soll die Anwendung von Supraleitern zum hochpräzisen  Messen von Magnetfeldern untersucht werden. Hierzu verwenden wir einen \textbf{S}uperconducting \textbf{QU}antum \textbf{I}nterference \textbf{D}evice (SQUID), der im Wesentlichen aus einem Supraleiterring und einem Schwingkreis besteht. Von einigen Proben, darunter einer Leiterschleife mit fünf verschiedenen Widerständen, wird so das Dipolmoment und die Feldstärke gemessen. Außerdem überprüfen wir die Abhängigkeit des Magnetfeldes vom Widerstand und vom Abstand zwischen Probe und Detektor.
+Wir erhielten für die eizelnen Messungen folgende Ergebnisse:
+
+
+
+Die erwarteten theoretischen Verläufe konnten wir weitgehendst bestätigen.
 
 \newpage
 
@@ -111,7 +116,7 @@ In diesem Versuch soll die Anwendung von Supraleitern zum hochpräzisen  Messen 
 \pagenumbering{arabic} %verstecke Seitenzahl
 \section{Einleitung}
 
-Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät, welches den Effekt der Supraleitung ausnutzt, um Magnetfelder zu messen. In diesem Versuch benutzen wir ein SQUID, um das Magnetfeld einer Leiterschleifen mit verschiedenen Widerständen und verschiedener sonstiger Gegenstände zu vermessen. Daraus bestimmen wir die Dipolmomente der Leiterschleife und der Gegenstände. Außerdem betrachten wir das Magnetfeld in Abhängigkeit des Drehwinkels der Proben.
+Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät, welches den Effekt der Supraleitung ausnutzt, um Magnetfelder zu messen. In diesem Versuch benutzen wir ein SQUID, um das Magnetfeld einer Leiterschleifen mit verschiedenen Widerständen und verschiedener sonstiger Gegenstände zu vermessen. Daraus bestimmen wir die Dipolmomente der Leiterschleife und der Gegenstände. Außerdem betrachten wir das Magnetfeld in Abhängigkeit des Drehwinkels der Proben. Außerdem messen wir für einen der Gegenstände (Kronkorken) das Magnetfeld für verschiedene Abstände zwischen der Probe und dem Detektor.
 
 
 \newpage
@@ -122,9 +127,9 @@ Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät, welches 
 Supraleiter sind auf keine Stoffklasse beschränkt und haben folgende charakteristische Eigenschaften:
 
 \begin{itemize}
-	\item Unterhalb einer kritischen Temperatur $T_c$ sinkt der elektrische Widerstand eines Supraleiters auf einen nicht messbaren Wert, ist also praktisch null
-	\item Supraleiter sind perfekte Diamagneten - äußere Magnetfelder können durch die vom im Leiter induzierten Ströme und das hieraus entstehende innere Magnetfeld kompensiert werden REF 
-	\item Die Elektronen eines Supraleiters gehen unterhalb der kritischen Temperatur paarweise Bindungen ein, diese sogenannten Cooper-Paare können als Bosonen behandelt werden wohingegen Elektronen Fermionen sind
+	\item Unterhalb einer kritischen Temperatur $T_c$ sinkt der elektrische Widerstand eines Supraleiters auf einen nicht messbaren Wert, ist also praktisch null (siehe Abbildung \ref{tempwid} )
+	\item Supraleiter sind perfekte Diamagneten - äußere Magnetfelder können durch die vom im Leiter induzierten Ströme und das hieraus entstehende innere Magnetfeld kompensiert werden (siehe \ref{Magnet})
+	\item Die Elektronen eines Supraleiters gehen unterhalb der kritischen Temperatur paarweise Bindungen ein, diese sogenannten Cooper-Paare können als Bosonen behandelt werden wohingegen Elektronen Fermionen sind (siehe \ref{BCS})
 	\item In der Bandstruktur befindet sich bei Supraleitern eine temperaturabhängige Energielücke, Einbringen oder Dissoziation von Elektronen unter dieser Energie ist nicht möglich \label{bandluecke}
 \end{itemize}
 
@@ -136,7 +141,7 @@ Oberhalb der kritischen Temperatur verhält sich der Widerstand eines Supraleite
 
 \gra{temperatur-widerstand}{Temperaturverhalten des elektrischen Widerstands eines Supraleiters\textsuperscript{\cite{chemistry}}\label{tempwid}}
 
-\subsection{Magnetische Eigenschaften}
+\subsection{Magnetische Eigenschaften \label{Magnet}}
 \gra{meissner-ochsenfeld}{Supraleiter im Magnetfeld (Meissner-Ochsenfeld-Effekt)\label{meissner-ochsenfeld}\textsuperscript{\cite{staat}}}
 \subsubsection{Meissner-Ochsenfeld-Effekt}
 Unterhalb der kritischen Temperatur $T_c$ wird ein angelegtes äußeres Magnetfeld durch ein inneres Magnetfeld aufgrund eines Abschirmstroms kompensiert. Diesen Effekt nennt man den Meissner-Ochsenfeld-Effekt\textsuperscript{\cite{anleitung}}. Innerhalb des Supraleiters gilt also für das Magnetfeld $\vec B=0$. Dies entspricht jedoch nicht einer perfekten Leitfähigkeit, da bei dieser das Magnetfeld erhalten bliebe. Bei Supraleitern des \textbf{Typ I} wird das Magnetfeld wie hier beschrieben komplett kompensiert.
@@ -166,7 +171,7 @@ Daraus folgen folgende Gleichungen:
 \end{align*}
 Die Lösungen dieser Gleichungen sind abfallende Exponentialfunktionen mit einer Reichweite von $\Lambda=\sqrt{\frac m{\mu_0n_ee^2}}$. Aus den Lösungen folgt, dass ein Magnetfeld ein gewisses Stück in den Supraleiter eindringen kann und in dieser Schicht senkrecht zum Magnetfeld eine Stromdichte $\vec j$ fließt, welche das Magnetfeld abschirmt.
 
-\subsection{BCS-Theorie}
+\subsection{BCS-Theorie \label{BCS}}
 \subsubsection{Überabschirmung der Coulomb-Wechselwirkung}\label{ueberabschirmung}
 Elektronen in einem Kristallgitter wirken eine Anziehungskraft auf die positiv geladenen Atomrümpfe aus. Bei Bewegung der Elektronen werden die Atomrümpfe nun ausgelenkt. Durch ihre größere Masse sind sie langsamer als die Elektronen und brauchen daher länger, um zu ihrer Ursprungsposition zurückzukehren. Deshalb ziehen die Elektronen nun eine Polarisationsspur hinter sich her. Die positiv geladenen Atomrümpfe wechselwirken nun anziehend mit anderen Elektronen, welches eine effektive anziehende Wechselwirkung zwischen zwei Elektronen zur Folge hat. Die Wechselwirkung zweier Elektronen mit den Wellenvektoren $\vec k$ und $\vec k'$ und der Energiedifferenz $\Delta E=\hbar\omega$ lässt sich durch folgenden Ausdruck darstellen: \textsuperscript{\cite{anleitung}}
 \begin{align}
@@ -176,7 +181,7 @@ Elektronen in einem Kristallgitter wirken eine Anziehungskraft auf die positiv g
 Durch diese Überabschirmung der Coulomb-Wechselwirkung (siehe \ref{ueberabschirmung}) bilden sich nun Paare von Elektronen aus, welche durch die effektive Anziehung schwach gebunden sind. Das Potential aus Gleichung (\ref{cooper-potential}) ist das Potential der effektiven Anziehung. Wenn nun $\Delta E\approx\hbar\omega_D$, kann sich eine vergleichsweise starke Anziehung ergeben.\\
 
 Elektronen sind Fermionen, sie haben den Spin $S=\frac12$. Fermionen unterliegen der Fermi-Statistik, das heißt bis zur Energie $E_F$ sind fast alle Zustände besetzt, danach sinkt die Besetzungsdichte gegen Null.
-Ein Cooper-Paar als Verkettung zweier $S_\frac12$ - Zustände kann nun als Boson mit ganzzahligem Spin betrachtet werden. Dadurch entsteht in dem Bereich $E_F-\hbar\omega_D<E<E_F+\hbar\omega_D$ eine Energie-Bandlücke.\textsuperscript{\cite{anleitung}}
+Ein Cooper-Paar als Verkettung zweier $S_\frac12$ - Zustände kann nun als Boson mit ganzzahligem Spin betrachtet werden. Dadurch entsteht in dem Bereich $E_F-\hbar\omega_D<E<E_F+\hbar\omega_D$ eine Energie-Bandlücke.\textsuperscript{\cite{SQUID}}
 \subsubsection{Wechselwirkung zwischen Cooper-Paaren}
 Die Wellenfunktion eines Cooper-Paares lässt sich darstellen als: \textsuperscript{\cite{anleitung}}
 \begin{align}
@@ -207,7 +212,7 @@ Daraus folgt nun die Quantisierung für den magnetischen Fluss:
 \end{align*}
 $\Phi_0$ ist das sogenannte Flussquant, oder auch Fluxoid\textsuperscript{\cite{anleitung}}.
 \subsection{Josephson-Effekt}
-Wenn man zwischen zwei Supraleitern einen Isolator einbringt, fließt nun aufgrund der im Isolator exponentiell abfallenden Aufenthaltswahrscheinlichkeiten der Cooper-Paare und der einzelnen Elektronen im Isolator ein Tunnelstrom. Um nun die Gesamtwellenfunktion beschreiben zu können, muss die Wellenfunktion $\Psi_1$ des einen Supraleiters stetig in die Wellenfunktion $\Psi_2$ des anderen Supraleiters übergehen. 
+Wenn man zwischen zwei Supraleitern einen Isolator einbringt, fließt nun aufgrund der im Isolator exponentiell abfallenden Aufenthaltswahrscheinlichkeiten der Cooper-Paare und der einzelnen Elektronen im Isolator ein Tunnelstrom. Um nun die Gesamtwellenfunktion beschreiben zu können, muss die Wellenfunktion $\Psi_1$ des einen Supraleiters stetig in die Wellenfunktion $\Psi_2$ des anderen Supraleiters übergehen. \textsuperscript{\cite{SQUID}}
 
 \subsection{SQUID}
 Das SQUID (Superconducting QUantum Interference Device) ist ein Gerät zur Messung von kleinen Magnetfeldänderungen, welches die Flussquantifizierung und andere Effekte der Supraleitung nutzt. SQUIDs existieren in verschiedenen Bauweisen. In diesem Versuch nutzen wir ein RF-SQUID (Radio Frequency SQUID).
@@ -651,6 +656,12 @@ Bruce A. Averill, Patricia Eldredge,
 \emph{General Chemistry: Principles, Patterns, and Applications},
 Saylor Foundation,
 2011
+
+\bibitem{SQUID}
+Clarke, J.,
+\emph{SQUIDS},
+Spektrum der Wissenschaft , 10/1994,
+Spektrum Akademischer Verlag
 \end{thebibliography}
 
 \end{document}
