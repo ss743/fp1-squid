@@ -257,13 +257,13 @@ Diese Messung wird danach mit mehreren Gegenständen durchgeführt. Wir benutzen
 \paragraph{Magnetfeld}Am Oszilloskop wird die durch die Drehung der Probe entstehende Sinuskurve aufgezeichnet. Für die Auswertung führen wir daher für alle aufgenommenen Datensätze Sinusfits folgender Form durch:
 
 \begin{align}
-U(t) = a + b\cdot sin(c\cdot t+d)
+U(t) = a + b\cdot sin(c\cdot t+d) \label{U}
 \end{align}
 
 Aus dem Fitparameter $b$ erhält man die Spannungsdifferenz $\Delta U = \left\| b \right\| $, aus der sich wiederum der magnetische Fluss berechnen lässt:
 
 \begin{align}
-B_z = \frac{\Delta U \cdot F }{2 \cdot s_i} 
+B_z = \frac{\Delta U \cdot F }{2 \cdot s_i} \label{B}
 \end{align}
 
 wobei 
@@ -284,7 +284,7 @@ wobei $s_{\Delta U}$ der Unsicherheit des Fitparameters $b$ entspricht.
 \paragraph{Dipolmoment} Aus dem Magnetfeld lässt sich nach \ref{Dipol} nun das Dipolmoment berechnen:
 
 \begin{align}
-p = \frac{2\pi B_z z³}{\mu_0}
+p = \frac{2\pi B_z z³}{\mu_0} \label{p}
 \end{align}
 
 wobei 
@@ -314,14 +314,76 @@ Für die Erstellung der Polarplots sind nun neben dem Fitparameter $b$ ebenfalls
 \phi = \omega \cdot t
 \end{align*}
 
-
+\newpage
 \subsection{Leiterschleife}
 \subsubsection{Gemessene Werte }
-\graTwoB{0.65}{0.34}{R1_Sinusfit}{R1_polar-plot}{Widerstand R1}
-\graTwoB{0.65}{0.34}{R2_Sinusfit}{R2_polar-plot}{Widerstand R2}
-\graTwoB{0.65}{0.34}{R3_Sinusfit}{R3_polar-plot}{Widerstand R3}
-\graTwoB{0.65}{0.34}{R4_Sinusfit}{R4_polar-plot}{Widerstand R4}
-\graTwoB{0.65}{0.34}{R5_Sinusfit}{R5_polar-plot}{Widerstand R5}
+\paragraph{Widerstand 1}\ \\
+\graTwoB{0.65}{0.34}{R1_Sinusfit}{R1_polar-plot}{Widerstand R1 \label{R1}}
+
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 1 (siehe Abbildung \ref{R1}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.4152\pm0.0003)\mathrm V-(0.3485\pm0.0005)\mathrm V\cdot \sin((0.8665 \pm 0.0002)\mathrm{s^{-1}}\cdot t + (5.744 \pm 0.003))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(853.9 \pm 1.2)\,\mathrm{pT}\\
+	p&=(0.44 \pm 0.03)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 2}\ \\
+
+\graTwoB{0.65}{0.34}{R2_Sinusfit}{R2_polar-plot}{Widerstand R2 \label{R2}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 2 (siehe Abbildung \ref{R2}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.4107\pm0.0002)\mathrm V-(0.1772\pm0.0003)\mathrm V\cdot \sin((0.8722 \pm 0.0003)\mathrm{s^{-1}}\cdot t + (16.041 \pm 0.003))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(433.8 \pm 0.7)\,\mathrm{pT}\\
+	p&=(0.253 \pm 0.016)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 3}\ \\
+\graTwoB{0.65}{0.34}{R3_Sinusfit}{R3_polar-plot}{Widerstand R3 \label{R3}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 3 (siehe Abbildung \ref{R3}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+U(t)=(0.35603\pm0.00019)\mathrm V-(0.0589\pm0.0003)\mathrm V\cdot \sin((0.8777 \pm 0.0008)\mathrm{s^{-1}}\cdot t + (6.198 \pm 0.009))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(144.2 \pm 0.7 \,\mathrm{pT}\\
+	p&=(0.075 \pm 0.006)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 4}\ \\
+\graTwoB{0.65}{0.34}{R4_Sinusfit}{R4_polar-plot}{Widerstand R4 \label{R4}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 4 (siehe Abbildung \ref{R4}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.3555\pm0.0003)\mathrm V-(0.0352\pm0.0004)\mathrm V\cdot \sin((0.866 \pm 0.002)\mathrm{s^{-1}}\cdot t + (6.84 \pm 0.02))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(86.2 \pm 0.10)\,\mathrm{pT}\\
+	p&=(0.045 \pm 0.003)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
+\paragraph{Widerstand 5}\ \\
+\graTwoB{0.65}{0.34}{R5_Sinusfit}{R5_polar-plot}{Widerstand R5 \label{R5}}
+
+Die gefittete Sinus-Funktion für die Leiterschleife mit Widerstand 5 (siehe Abbildung \ref{R5}) lautet wie folgt (siehe Gleichung (\ref{U})):
+\begin{align*}
+	U(t)=(0.3418\pm0.0003)\mathrm V+(0.0222\pm0.0003)\mathrm V\cdot \sin((0.829 \pm 0.003)\mathrm{s^{-1}}\cdot t + (6.09 \pm 0.03))
+\end{align*}
+Daraus folgt für das Magnetfeld und das Dipolmoment des Geldstücks mit den Gleichung (\ref{B}) und (\ref{p}):
+\begin{align*}
+	B_z&=(54.4 \pm 0.09)\,\mathrm{pT}\\
+	p&=(0.028 \pm 0.002)\,\mathrm{mm^2A}
+\end{align*}
+\newpage
 \subsubsection{Theoretische Werte}
 
 Für die Leiterschleife lässt sich das Dipolmoment nicht nur aus den gemessenen Werten bestimmen, sondern auch theoretische berechnen (siehe \ref{11}). Es gilt:
@@ -347,29 +409,32 @@ wobei:
 \caption{Widerstände der Leiterschleife}	\label{Tab}
 \end{table}
 
-Wi erhalten für die verschiedenen Widerstände folgende Werte: 
+
+Wir erhalten für die verschiedenen Widerstände folgende Werte: 
 
 \begin{itemize}
-\item R1: $p = (0.44 \pm 0.03) A mm²$
-\item R2: $p = (0.253 \pm 0.016) A mm²$
-\item R3: $p = (0.075 \pm 0.006) A mm²$
-\item R4: $p = (0.045 \pm 0.003) A mm²$
-\item R5: $p = (0.028 \pm 0.002) A mm²$
+\item R1: $p = (0.65 \pm 0.12) A mm²$
+\item R2: $p = (0.33 \pm 0.06) A mm²$
+\item R3: $p = (0.11 \pm 0.02) A mm²$
+\item R4: $p = (0.066 \pm 0.012) A mm²$
+\item R5: $p = (0.037 \pm 0.006) A mm²$
 \end{itemize}
 
 Aus diesen lässt sich mit \ref{11} nun das Magnetfeld berechnen (wobei sich der Fehler analog mit Fehlerfortpflanzung berechnet):
 
 \begin{itemize}
-\item R1: $B_z = (853.9 \pm 1.2) pT$
-\item R2: $B_z = (433.8 \pm 0.7) pT$
-\item R3: $B_z = (144.2 \pm 0.7) pT$
-\item R4: $B_z = (86.2 \pm 0.10) pT$
-\item R5: $B_z = (54.4 \pm 0.09) pT$
+\item R1: $B_z = (1260 \pm 252) pT$
+\item R2: $B_z = (643 \pm 129) pT$
+\item R3: $B_z = (215 \pm 43 ) pT$
+\item R4: $B_z = (127 \pm 25) pT$
+\item R5: $B_z = (65 \pm 13) pT$
 \end{itemize}
 
  Um die theoretischen Werte mit den gemessenen Werten zu vergleichen, tragen wir die errechneten Magnetfelder jeweils über den Widerstand auf (die theoretischen Werte sind dabei in rot dargestellt, die gemessenen in schwarz):
 
 \gra[1]{Leiterschleife}{Vergleich Theorie und Messung der Leiterschleife}
+
+\newpage
 \subsection{Gegenstände}
 \paragraph{Geldstück}\ \\\ \\
 Die gefittete Sinus-Funktion für das Geldstück lautet wie folgt (siehe Gleichung (\ref{U})):
