@@ -2,7 +2,7 @@ setwd("C:/Users/Saskia/Documents/Physik/FP/fp1-squid/Auswertung")
 library("Hmisc")
 library("plotrix")
 source("hochdreifit.R")
-
+source("Einsdurch.R")
 
 F = 9.3 * 10^-9
 Si = 1.9
@@ -23,6 +23,7 @@ plot(R, B_LS, pch=4, ylim = c(0, 14*10^-10), , xlab="R/Ohm", ylab = "B_LS/T")
 plotCI (R, B_LS, uiw=abs(s_B_LS) , err="y" , pch=4, cex=0.6 ,add=TRUE)
 
 
+
 #Dipol
 
 z_LS = sqrt(4.7^2 + 0.1^2)*10^-2
@@ -30,6 +31,19 @@ s_z_LS = 0.2*10^-2
 p_LS = (2*pi*B_LS*z_LS^3)/mu_0
 
 s_p_LS = p_LS * sqrt((s_B_LS/B_LS)^2 + 3*(s_z_LS/z_LS)^2)
+
+input_data2=data.frame(x=R, y=B_LS)
+
+
+#einsdurch(input_data2)
+
+parameter2=einsdurch(input_data2)
+a = parameter2[[1]]
+b = parameter2[[2]]
+
+
+plot(function(x){a+b/x},0,1000, add = TRUE, col = 'black')
+text(x=600, y=10^-9, "B(R)= (3.4+-3.5)*10^-12+(4.36+-0.03)*10^-8/R", cex=0.75)
 
 #Theorie
 
@@ -39,6 +53,16 @@ B_theo = (mu_0/(2*pi))*(p_theo/z_LS^3)
 s_B_theo = B_theo * sqrt((s_p_theo/p_theo)^2 + 3*(s_z_LS/z_LS)^2)
 points(R, B_theo, pch=4, col="red")
 plotCI (R, B_theo, uiw=abs(s_B_theo) , err="y" , pch=4, cex=0.6 ,add=TRUE)
+
+
+
+
+
+a = 0
+b = mu_0 * A * U/(2*pi*z_LS^3)
+
+
+plot(function(x){a+b/x},0,1000, add = TRUE, col = 'red')
 #random Shit - gleiche Reihenfolge wie.txt
 #Magnetfeld
 
