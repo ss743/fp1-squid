@@ -19,7 +19,7 @@
 \usepackage[labelfont=bf]{caption}
 \usepackage{titling}
 
-\lstset{basicstyle=\scriptsize} %Quellcode mit Umlauten und ganz klein
+\lstset{basicstyle=\scriptsize,breaklines=true} %Quellcode mit Umlauten und ganz klein
 \lstset{literate=
   {Ö}{{\"O}}1
   {Ä}{{\"A}}1
@@ -602,15 +602,24 @@ Aus Abbildung \ref{KK} entnehmen wir, dass der Offset im Rahmen des Fehlers wide
 
 
 %\newpage
-%\subsection{Quellcode (MATLAB)}
-%\lstinputlisting[language=MATLAB]{Rohdaten/alpha.m}
+\subsection{Quellcode (R)}
+\subsubsection{\code{Auswertung.R}}\label{AuswertungR}
+\lstinputlisting[language=R]{Auswertung/Auswertung.R}
+\subsubsection{\code{Magnetfeld-Dipol.R}}\label{MagnetfeldR}
+\lstinputlisting[language=R]{Auswertung/Magnetfeld-Dipol.R}
+\subsubsection{\code{Sinusfit.R}}\label{SinusfitR}
+\lstinputlisting[language=R]{Auswertung/Sinusfit.R}
+\subsubsection{\code{Einsdurch.R}}\label{EinsdurchR}
+\lstinputlisting[language=R]{Auswertung/Auswertung.R}
+\subsubsection{\code{hochdreifit.R}}\label{hochdreifitR}
+\lstinputlisting[language=R]{Auswertung/Auswertung.R}
 
-%\newpage
+\newpage
 \subsection{Laborheft}
-%\begin{minipage}{\textwidth}
-%\centering
-%\includegraphics[width=0.9\textwidth]{figures/IMG_20151002_141014.jpg}
-%\end{minipage}
+\begin{minipage}{\textwidth}
+\centering
+\includegraphics[width=0.89\textwidth]{figures/Laborbuch.pdf}
+\end{minipage}
 \label{Laborbuch}
 \newpage
 \listoffigures
