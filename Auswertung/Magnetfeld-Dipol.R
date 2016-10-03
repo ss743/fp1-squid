@@ -1,6 +1,7 @@
+setwd("C:/Users/Saskia/Documents/Physik/FP/fp1-squid/Auswertung")
 library("Hmisc")
 library("plotrix")
-
+source("hochdreifit.R")
 
 
 F = 9.3 * 10^-9
@@ -69,10 +70,6 @@ s_x <- c(0.2, 0.2, 0.2, 0.2, 0.2, 0.2)
 
 
 
-plot(x, B_KK, pch=4, xlab="x/cm", ylab="B_KK/T")
-plotCI (x, B_KK, uiw=abs(s_B_KK) , err="y" , pch=4, cex=0.6 ,add=TRUE)
-plotCI (x, B_KK, uiw=abs(s_x) , err="x" , pch=4, cex=0.6 ,add=TRUE)
-
 
 #Dipol
 
@@ -81,3 +78,18 @@ s_z_KK = 0.2*10^-2
 
 p_KK = (2*pi*B_KK*z_KK^3)/mu_0
 s_p_KK = p_KK * sqrt((s_B_KK/B_KK)^2 + 3*(s_z_KK/z_KK)^2)
+
+plot(z_KK, B_KK, pch=4 ,xlab="z/cm", ylab="B_KK/T")
+plotCI (z_KK, B_KK, uiw=abs(s_B_KK) , err="y" , pch=4, cex=0.6 ,add=TRUE)
+plotCI (z_KK, B_KK, uiw=abs(s_z_KK) , err="x" , pch=4, cex=0.6 ,add=TRUE)
+
+input_data1 = data.frame(x=z_KK, y=B_KK)
+hochdreifit(input_data1)
+
+parameter1=hochdreifit(input_data1)
+a = parameter1[[1]]
+b = parameter1[[2]]
+
+
+plot(function(x){a+b/x^3},0.06,0.095, add = TRUE, col = 'red')
+text(x= 0.085 ,y= 2*10^-8 ,  "B(z) = -(1.7+-0.5)*10^-8 + (1.5+-0.2)*10^-11/z^3", cex=0.7)
