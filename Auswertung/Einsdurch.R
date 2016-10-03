@@ -8,7 +8,7 @@ einsdurch <- function(data){
   
   
   
-  plot(function(x){a0+b0/x},0,1000,col="green",add=TRUE)
+  #plot(function(x){a0+b0/x},0,1000,col="green",add=TRUE)
   
   fit = nls(einsdurch, data, start=list(a=a0, b=b0))
   
